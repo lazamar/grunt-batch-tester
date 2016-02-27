@@ -29,8 +29,8 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    phantom_batch_tester: {
-      all: ['../hive-tests/**/*.html'],
+    phantomTester: {
+      all: ['tests/**/*.html'],
     },
 
     // Unit tests.
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'phantom_batch_tester', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'phantomTester', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

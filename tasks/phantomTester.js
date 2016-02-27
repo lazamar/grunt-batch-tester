@@ -19,7 +19,7 @@ module.exports = function (grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('phantom_batch_tester',
+  grunt.registerMultiTask('phantomTester',
         'Test loads of html files with phantomjs in one go.', function () {
     var done = this.async();
     function testWithPhantom(fileName) {
@@ -82,9 +82,15 @@ module.exports = function (grunt) {
         });
       };
     }());
-    grunt.log.ok(files);
 
-    runThroughFiles(files);
+    if (!files || files.length < 1) {
+      grunt.log.error('No HTML tests found. Aborting...');
+      done(false);
+      return;
+    } else {
+      grunt.log.ok(files);
+      runThroughFiles(files);
+    }
   });
 
 };

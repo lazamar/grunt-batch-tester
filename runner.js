@@ -47,10 +47,8 @@ page.onError = function (msg) {
 };
 
 page.open(system.args[1], function (status) {
-  system.stdout.write('Page open!');
-
   if (status !== 'success') {
-    console.log('Could not load the page');
+    console.error('Error: could not load the page ' + system.args[1]);
     phantom.exit(1);
   }
 
