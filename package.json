@@ -1,0 +1,43 @@
+{
+  "name": "grunt-phantom-batch-tester",
+  "description": "Test loads of html files with phantomjs in one go.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/marcelo/grunt-phantom-batch-tester",
+  "author": {
+    "name": "lazamar",
+    "email": "lazaronijunior@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcelo/grunt-phantom-batch-tester.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcelo/grunt-phantom-batch-tester/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/marcelo/grunt-phantom-batch-tester/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "phantomjs": "^2.1.3",
+    "promise": "^7.1.1",
+    "system": "^1.0.4"
+  }
+}
