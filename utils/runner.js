@@ -46,6 +46,11 @@ page.onError = function (msg) {
   phantom.exit(1);
 };
 
+page.onInitialized = function () {
+  var outcome = page.injectJs('jasmine-reporter.js');
+  system.stdout.write(outcome);
+};
+
 page.open(system.args[1], function (status) {
   if (status !== 'success') {
     console.error('Error: could not load the page ' + system.args[1]);

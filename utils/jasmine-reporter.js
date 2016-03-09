@@ -129,10 +129,9 @@ var customReporter = (function () {
  }
 }());
 
-
- ;
-
 /**
  * Register the reporter with jasmine
  */
-jasmine.getEnv().addReporter(customReporter);
+window.addEventListener('load', function () {
+  jasmine.getEnv().addReporter(customReporter);
+})

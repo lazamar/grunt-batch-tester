@@ -10,7 +10,7 @@
 
 module.exports = function (grunt) {
   var system = require('system');
-  var Formatter = require('../formatter');
+  var Formatter = require('../utils/formatter');
   var Promise = require('promise');
   var childProcess = require('child_process');
   var spawn = childProcess.spawn;
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
     var done = this.async();
     function testWithPhantom(fileName) {
       return new Promise(function (resolve, reject) {
-        var runner = __dirname + '/../runner.js';
+        var runner = __dirname + '/../utils/runner.js';
         var args = [runner, fileName];
         var cspr = spawn('phantomjs', args);
         var errors = 0;
