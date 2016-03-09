@@ -48,7 +48,6 @@ page.onError = function (msg) {
 
 page.onInitialized = function () {
   var outcome = page.injectJs('jasmine-reporter.js');
-  system.stdout.write(outcome);
 };
 
 page.open(system.args[1], function (status) {
