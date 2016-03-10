@@ -8,7 +8,17 @@
 
 var system = require('system');
 var fs = require('fs');
-var INJECTIONSFOLDER = 'js-injections/';
+
+//NOTE: runner.js is always passed as the first parameter in the command line,
+//therefore, to get the root of this module we only neeed to go one folder up from
+//this file's address.
+if (!system.args[0] || !system.args[0].match(/runner\.js$/)) {
+  console.error('runner.js was not passed as a second argument in the command line.');
+  phantom.exit(1);
+}
+
+var moduleRoot = system.args[0].replace('runner.js', '');
+var INJECTIONSFOLDER = moduleRoot + '../js-injections/';
 
 //Find files to be injected
 var injections = fs.list(INJECTIONSFOLDER) || [];
