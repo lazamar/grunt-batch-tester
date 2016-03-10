@@ -75,9 +75,9 @@ module.exports = function (grunt) {
             i++;
             runThroughFiles(fileNames);
           } else {
-            var exitValue = hadErrors ? false : true;
+            var exitValue = hadErrors ? 1 : 0;
             grunt.log.writeln('Exit value: ' + exitValue);
-            done(exitValue);
+            done(!exitValue);
           }
         });
       };
