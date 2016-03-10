@@ -1,7 +1,7 @@
 {
   "name": "grunt-phantom-batch-tester",
   "description": "Test loads of html files with phantomjs in one go.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/marcelo/grunt-phantom-batch-tester",
   "author": {
     "name": "lazamar @ FourLabs",
