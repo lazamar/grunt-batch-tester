@@ -7,6 +7,14 @@
 // =====================================================
 
 var system = require('system');
+var fs = require('fs');
+var INJECTIONSFOLDER = 'js-injections/';
+
+//Find files to be injected
+var injections = fs.list(INJECTIONSFOLDER) || [];
+var injections = injections.slice(2); //remove '.' and '..'
+
+console.log(injections.join(' '));
 
 if (system.args.length !== 2) {
   console.log('Usage: run-jasmine.js URL');
@@ -47,7 +55,19 @@ page.onError = function (msg) {
 };
 
 page.onInitialized = function () {
-  var outcome = page.injectJs('jasmine-reporter.js');
+  if (!injections) {
+    throw new Error('page.onInitialized(): No injections object');
+  }
+
+  injections.forEach(function (file) {
+    var filePath = INJECTIONSFOLDER + file;
+    var outcome = page.injectJs(filePath);
+    if (outcome) {
+      system.stdout.writeLine(filePath + ' injected into page.');
+    } else {
+      system.stderr.writeLine(filePath + ' injected into page.');
+    }
+  });
 };
 
 page.open(system.args[1], function (status) {
